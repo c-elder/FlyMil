@@ -1,54 +1,23 @@
-# React + TypeScript + Vite
+# FlyMil
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A live tracking tool for government and military aircraft. This project leverages unfiltered ADS-B, Mode S and MLAT feeders provided enthusiasts. This tool provides a user-friendly interface to monitor different countries government and military movements in the air.
 
-Currently, two official plugins are available:
+![FlyMil Image](./images/flymil.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Information
 
-## Expanding the ESLint configuration
+FlyMil uses the [ADS-B Exchange API](https://adsbexchange.com/) to retrieve real-time data of military aircraft. ADS-B exchange collects data from a worldwide network of ADS-B receivers, ensuring comprehensive coverage and accurate information. If you're interested in learning more about what ADS-B is then I recommend this [video](https://www.youtube.com/watch?v=F-v54MlxMIo).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Features
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+TBD
+
+## Installation
+
+Use `npm` to install the required dependencies.
+
+```cmd
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+FlyMil uses the [ADS-B Exchange API](https://adsbexchange.com/) so to run the project successfully you will have to purchase an API key.
