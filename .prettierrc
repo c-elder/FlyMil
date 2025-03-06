@@ -1,0 +1,18 @@
+{
+  "singleQuote": false,
+  "tabWidth": 2,
+  "importOrder": [
+    "react",
+    "",
+    "<THIRD_PART_MODULES>",
+    "",
+    "^[.]",
+    "^[@]",
+    "^(?!.*[.]css$)[./].*$",
+    ".css$"
+  ],
+  "plugins": [
+    "@ianvs/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss"
+  ]
+}
