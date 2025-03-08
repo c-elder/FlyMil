@@ -14,7 +14,7 @@ import {
 import { ResponseStructure } from "./ACMarker";
 
 interface Props extends React.ComponentProps<typeof Sidebar> {
-  onFetchData: (data: ResponseStructure) => void;
+  onFetchData: (data: ResponseStructure[]) => void;
 }
 
 export function AppSidebar({ onFetchData, ...props }: Props) {

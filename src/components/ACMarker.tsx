@@ -52,7 +52,7 @@ export function ACMarker(aircraft: ResponseStructure) {
     return (
         <Marker position={position}>
             <Popup>
-              <h2>{aircraft.flight} - {aircraft.r}</h2>
+              <h2>{aircraft.flight ? aircraft.flight : "No Callsign"} - {aircraft.r ? aircraft.r : "Registration unknown"}</h2>
               <p>Country: {country}</p>
               <p>Type: {typeOfAircraft}</p>
             </Popup>
