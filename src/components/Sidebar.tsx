@@ -1,6 +1,7 @@
 import { GalleryVerticalEnd } from "lucide-react";
 import * as React from "react";
 
+import { APIResponse } from "../types/api_response";
 import Form from "./CountryForm";
 import {
   Sidebar,
@@ -11,10 +12,9 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "./ui/sidebar";
-import { ResponseStructure } from "./ACMarker";
 
 interface Props extends React.ComponentProps<typeof Sidebar> {
-  onFetchData: (data: ResponseStructure[]) => void;
+  onFetchData: (data: APIResponse[]) => void;
 }
 
 export function AppSidebar({ onFetchData, ...props }: Props) {
@@ -36,10 +36,7 @@ export function AppSidebar({ onFetchData, ...props }: Props) {
                     <GalleryVerticalEnd className="size-4" />
                   </div>
                   <div className="flex flex-col gap-0.5 leading-none">
-                    <span className="font-semibold">
-                      Military Aircraft Tracker
-                    </span>
-                    <span className="">v1.0.0</span>
+                    <span className="text-xl font-semibold">FlyMil</span>
                   </div>
                 </a>
               </SidebarMenuButton>

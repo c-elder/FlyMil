@@ -1,61 +1,43 @@
-import { LatLngExpression } from "leaflet";
+import L, { LatLngExpression } from "leaflet";
 import { Marker, Popup } from "react-leaflet";
+
+import { APIResponse } from "../types/api_response";
 import { IdentifyAircraft, IdentifyCountry } from "../utils/identification";
 
-export type ResponseStructure = {
-    hex: string;
-    type: string;
-    flight: string;
-    r: string;
-    t: string;
-    dbFlags: number;
-    alt_baro: number;
-    alt_geom: number;
-    gs: number;
-    track: number;
-    baro_rate: number;
-    geom_rate: number;
-    squawk: string;
-    emergency: string;
-    category: string;
-    lat: number;
-    lon: number;
-    nic: number;
-    rc: number;
-    seen_pos: number;
-    version: number;
-    nic_baro: number;
-    nac_p: number;
-    nac_v: number;
-    sil: number;
-    sil_type: string;
-    gva: number;
-    sda: number;
-    alert: number;
-    spi: number;
-    mlat: string[];
-    tisb: string[];
-    messages: number;
-    seen: number;
-    rssi: number;
-}
+export function ACMarker(aircraft: APIResponse) {
+  const position: LatLngExpression = [aircraft.lat, aircraft.lon];
+  if (!aircraft.lat || !aircraft.lon) {
+    return <></>;
+  }
 
-export function ACMarker(aircraft: ResponseStructure) {
-    const position: LatLngExpression = [aircraft.lat, aircraft.lon];
-    if (!aircraft.lat || !aircraft.lon) {
-         return <></>
-    }
+  const country = IdentifyCountry(aircraft.hex);
+  const aircraftType = IdentifyAircraft(aircraft.t);
+  const icon = L.divIcon({
+    html: `
+          <div style="transform: rotate(${180 + aircraft.track}deg);">
+            <svg width="32" height="32">
+                <defs>
+                    <image width="25" height="25" id="img1" href="../../../../public/aircraft-pointer.svg"/>
+              </defs>
+                <use id="" href="#img1" x="4" y="4"/>
+            </svg>
+          </div>`,
+    iconSize: [32, 32],
+    iconAnchor: [16, 16],
+    className: "",
+  });
 
-    const country = IdentifyCountry(aircraft.hex);
-    const typeOfAircraft = IdentifyAircraft(aircraft.t);
-
-    return (
-        <Marker position={position}>
-            <Popup>
-              <h2>{aircraft.flight ? aircraft.flight : "No Callsign"} - {aircraft.r ? aircraft.r : "Registration unknown"}</h2>
-              <p>Country: {country}</p>
-              <p>Type: {typeOfAircraft}</p>
-            </Popup>
-          </Marker>
-    )
+  return (
+    <Marker position={position} icon={icon} alt={aircraft.flight}>
+      <Popup>
+        <h2>
+          {aircraft.flight ? aircraft.flight : "No Callsign"}
+          {aircraft.r ? aircraft.r : "Registration unknown"}
+        </h2>
+        <p>Country: {country}</p>
+        <p>Make & Model: {aircraftType.name}</p>
+        <p>Type: {aircraftType.type}</p>
+      </Popup>
+    </Marker>
+  );
 }

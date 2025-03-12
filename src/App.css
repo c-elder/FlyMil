@@ -19,6 +19,26 @@
   width: 100%;
 }
 
+.leaflet-div-icon {
+  background-image: url("./assets/Stratotanker.svg");
+  background: none;
+}
+
+.filter-green {
+  filter: invert(47%) sepia(95%) saturate(1090%) hue-rotate(82deg)
+    brightness(120%) contrast(120%);
+}
+
+.filter-blue {
+  filter: invert(23%) sepia(97%) saturate(876%) hue-rotate(183deg)
+    brightness(95%) contrast(88%);
+}
+
+.filter-yellow {
+  filter: invert(89%) sepia(81%) saturate(4154%) hue-rotate(356deg)
+    brightness(101%) contrast(107%);
+}
+
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);

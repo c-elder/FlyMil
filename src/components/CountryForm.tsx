@@ -1,6 +1,7 @@
 import * as z from "zod";
 import { useForm } from "react-hook-form";
 
+import { APIResponse } from "../types/api_response";
 import { Button } from "./ui/button";
 import { Checkbox } from "./ui/checkbox";
 import {
@@ -12,7 +13,6 @@ import {
   FormMessage,
 } from "./ui/form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ResponseStructure } from "./ACMarker";
 
 const formSchema = z.object({
   us: z.boolean().optional(),
@@ -21,24 +21,23 @@ const formSchema = z.object({
 });
 
 type Props = {
-  onFetchData: (data: ResponseStructure[]) => void;
-}
+  onFetchData: (data: APIResponse[]) => void;
+};
 
-export default function MyForm({onFetchData}: Props) {
+export default function MyForm({ onFetchData }: Props) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
   });
 
   async function fetchData() {
     const apiKey = import.meta.env.VITE_API_KEY;
-    console.log(apiKey)
-    const url = 'https://adsbexchange-com1.p.rapidapi.com/v2/mil/';
+    const url = "https://adsbexchange-com1.p.rapidapi.com/v2/mil/";
     const options = {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'x-rapidapi-key': apiKey,
-        'x-rapidapi-host': 'adsbexchange-com1.p.rapidapi.com'
-      }
+        "x-rapidapi-key": apiKey,
+        "x-rapidapi-host": "adsbexchange-com1.p.rapidapi.com",
+      },
     };
 
     try {
@@ -49,8 +48,7 @@ export default function MyForm({onFetchData}: Props) {
       }
 
       const data = await response.json();
-      onFetchData(data.ac)
-      console.log(data.ac)
+      onFetchData(data.ac);
     } catch (error) {
       console.error(`Error: ${error}`);
     }
@@ -58,7 +56,6 @@ export default function MyForm({onFetchData}: Props) {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      console.log(values);
       fetchData();
     } catch (error) {
       console.error("Form submission error", error);
