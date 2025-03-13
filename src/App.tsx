@@ -13,6 +13,7 @@ import { APIResponse } from "./types/api_response";
 function App() {
   const position: LatLngExpression = [51.505, -0.09];
   const [acData, setACData] = useState<APIResponse[] | null>();
+  const [currAC, setCurrAC] = useState<APIResponse | null>();
 
   function onFetchData(data: APIResponse[]) {
     setACData(data);
@@ -42,10 +43,16 @@ function App() {
           />
           {acData
             ? acData.map((item) => {
-                return <ACMarker key={item.r} {...item} />;
+                return (
+                  <ACMarker
+                    key={item.lat}
+                    aircraft={item}
+                    setCurrAC={setCurrAC}
+                  />
+                );
               })
             : null}
-          <InfoBar />
+          {currAC && <InfoBar aircraft={currAC} />}
         </MapContainer>
       </div>
     </SidebarProvider>

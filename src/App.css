@@ -24,6 +24,11 @@
   background: none;
 }
 
+.leaflet-popup-content-wrapper .leaflet-popup-content {
+  padding: 0;
+  margin: 0.6rem;
+}
+
 .filter-green {
   filter: invert(47%) sepia(95%) saturate(1090%) hue-rotate(82deg)
     brightness(120%) contrast(120%);

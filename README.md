@@ -1,7 +1,6 @@
 # FlyMil
 
-A live tracking tool for government and military aircraft. This project leverages unfiltered ADS-B, Mode S and MLAT feeders provided enthusiasts. This tool provides a user-friendly interface to monitor different countries government and military movements in the air.
-
+A live tracking tool for government and military aircraft. This project leverages unfiltered ADS-B, Mode S and MLAT feeders provided by enthusiasts. This tool provides a user-friendly interface to monitor different countries government and military movements in the air.
 
 <p align="center">
     <img src="https://github.com/v0rkath/FlyMil/blob/main/images/flymil.png"/>

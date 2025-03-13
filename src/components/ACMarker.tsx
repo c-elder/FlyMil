@@ -2,16 +2,21 @@ import L, { LatLngExpression } from "leaflet";
 import { Marker, Popup } from "react-leaflet";
 
 import { APIResponse } from "../types/api_response";
-import { IdentifyAircraft, IdentifyCountry } from "../utils/identification";
 
-export function ACMarker(aircraft: APIResponse) {
+// import { useState } from "react";
+
+type Props = {
+  aircraft: APIResponse;
+  setCurrAC: (ac: APIResponse) => void;
+};
+
+export function ACMarker({ aircraft, setCurrAC }: Props) {
   const position: LatLngExpression = [aircraft.lat, aircraft.lon];
+
   if (!aircraft.lat || !aircraft.lon) {
-    return <></>;
+    return null;
   }
 
-  const country = IdentifyCountry(aircraft.hex);
-  const aircraftType = IdentifyAircraft(aircraft.t);
   const icon = L.divIcon({
     html: `
           <div style="transform: rotate(${180 + aircraft.track}deg);">
@@ -28,15 +33,20 @@ export function ACMarker(aircraft: APIResponse) {
   });
 
   return (
-    <Marker position={position} icon={icon} alt={aircraft.flight}>
-      <Popup>
-        <h2>
+    <Marker
+      position={position}
+      icon={icon}
+      alt={aircraft.flight}
+      eventHandlers={{
+        click: () => {
+          setCurrAC(aircraft);
+        },
+      }}
+    >
+      <Popup closeButton={false}>
+        <h2 className="text-center text-xs">
           {aircraft.flight ? aircraft.flight : "No Callsign"}
-          {aircraft.r ? aircraft.r : "Registration unknown"}
         </h2>
-        <p>Country: {country}</p>
-        <p>Make & Model: {aircraftType.name}</p>
-        <p>Type: {aircraftType.type}</p>
       </Popup>
     </Marker>
   );
