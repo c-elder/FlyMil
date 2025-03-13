@@ -12,7 +12,20 @@ FlyMil uses the [ADS-B Exchange API](https://adsbexchange.com/) to retrieve real
 
 ## Features
 
-TBD
+- Displays only military and government aircraft.
+- Aircraft information displayed when selected:
+  - Callsign
+  - Registration
+  - Country of Registration
+  - Manufacturer
+  - Model
+  - Type
+  - Ground speed
+  - True airspeed
+  - Indicated airspeed
+  - Barometric Altitude
+  - Track
+  - Position
 
 ## Installation
 
