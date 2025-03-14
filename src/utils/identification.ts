@@ -2,7 +2,7 @@ type CountryMapping = {
   [key: string]: string;
 };
 
-type AircraftTypes = "Fixed-wing" | "Rotary-wing" | "Unknown";
+type AircraftTypes = "Fixed-wing" | "Rotary-wing" | "Tiltrotor" | "Unknown";
 
 type AircraftMapping = {
   [key: string]: { name: string; type: AircraftTypes; manufacturer: string };
@@ -74,6 +74,7 @@ const countryCodes: CountryMapping = {
   AAA: "USA",
   AA7: "USA",
   ADC: "USA",
+  A9A: "USA",
   "800": "India",
   "70C": "Oman",
   "706": "Kuwait",
@@ -99,6 +100,7 @@ const countryCodes: CountryMapping = {
   "896": "United Arab Emirates",
   "710": "Saudi Arabia",
   "711": "Saudi Arabia",
+  "717": "Saudi Arabia",
   "732": "Iran",
   "50F": "Ukraine",
   "506": "Slovenia",
@@ -312,7 +314,7 @@ const aircraftTypes: AircraftMapping = {
   E35L: { name: "EMB-135 Legacy", type: "Fixed-wing", manufacturer: "EMBRAER" },
   B737: { name: "737-700", type: "Fixed-wing", manufacturer: "BOEING" },
   C172: { name: "172 Skyhawk", type: "Fixed-wing", manufacturer: "CESSNA" },
-  V22: { name: "V-22 Osprey", type: "Fixed-wing", manufacturer: "BELL-BOEING" },
+  V22: { name: "V-22 Osprey", type: "Tiltrotor", manufacturer: "BELL-BOEING" },
   LJ35: { name: "35", type: "Fixed-wing", manufacturer: "LEARJET" },
   A21N: { name: "A-321neo", type: "Fixed-wing", manufacturer: "AIRBUS" },
   C25A: {
@@ -449,6 +451,16 @@ const aircraftTypes: AircraftMapping = {
     manufacturer: "GULFSTREAM AEROSPACE",
   },
   A359: { name: "A-350-900", type: "Fixed-wing", manufacturer: "AIRBUS" },
+  F100: { name: "FOKKER 100", type: "Fixed-wing", manufacturer: "FOKKER" },
+  EN48: { name: "TH-28", type: "Rotary-wing", manufacturer: "ENSTROM" },
+  B06: { name: "206 JetRanger", type: "Rotary-wing", manufacturer: "BELL" },
+  PC7: { name: "PC-7 Astr", type: "Fixed-wing", manufacturer: "PILATUS" },
+  P180: { name: "P-180 Avanti", type: "Fixed-wing", manufacturer: "PIAGGIO" },
+  AS50: {
+    name: "AS-350 Ecureuil",
+    type: "Rotary-wing",
+    manufacturer: "AEROSPATIALE",
+  },
 };
 
 export function IdentifyCountry(hexCode: string) {
