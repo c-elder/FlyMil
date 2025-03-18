@@ -1,4 +1,10 @@
-export type APIResponse = {
+export type API = {
+  ac: AircraftDetails[];
+  ctime: number;
+  total: number;
+};
+
+export type AircraftDetails = {
   hex: string;
   type: string;
   flight: string;

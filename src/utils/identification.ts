@@ -128,6 +128,7 @@ const countryCodes: CountryMapping = {
   E20: "Argentina",
   "516": "Montenegro",
   "880": "Thailand",
+  "883": "Thailand",
   "881": "Thailand",
   "884": "Thailand",
   "7CF": "Australia",
@@ -460,6 +461,17 @@ const aircraftTypes: AircraftMapping = {
     name: "AS-350 Ecureuil",
     type: "Rotary-wing",
     manufacturer: "AEROSPATIALE",
+  },
+  HRON: { name: "Heron Drone", type: "Fixed-wing", manufacturer: "IAI" },
+  C68A: {
+    name: "680 Citation Latitude",
+    type: "Fixed-wing",
+    manufacturer: "CESSNA",
+  },
+  F15: {
+    name: "F-15 Eagle",
+    type: "Fixed-wing",
+    manufacturer: "MCDONNELL-DOUGLAS",
   },
 };
 

@@ -1,8 +1,8 @@
-import { APIResponse } from "../types/api_response";
+import { AircraftDetails } from "../types/api_response";
 import { IdentifyAircraft, IdentifyCountry } from "../utils/identification";
 
 type Props = {
-  aircraft: APIResponse;
+  aircraft: AircraftDetails;
 };
 
 export function InfoBar({ aircraft }: Props) {
@@ -15,9 +15,7 @@ export function InfoBar({ aircraft }: Props) {
       <div className="flex divide-x-1">
         <div className="flex-col first:pr-4">
           <p className="text-base">Callsign:</p>
-          <p className="pb-2 text-slate-500">
-            {aircraft.flight ? aircraft.flight : "Unknown"}
-          </p>
+          <p className="pb-2 text-slate-500">{aircraft.flight || "Unknown"}</p>
           <p className="text-base">Registration:</p>
           <p className="pb-2 text-slate-500">{aircraft.r}</p>
           <p className="text-base">Country of Registration:</p>
@@ -27,7 +25,7 @@ export function InfoBar({ aircraft }: Props) {
         <div className="flex-col px-4">
           <p className="text-base">Aircraft Manufacturer:</p>
           <p className="pb-2 text-slate-500">
-            {aircraftType.manufacturer ? aircraftType.manufacturer : "Unknown"}
+            {aircraftType.manufacturer || "Unknown"}
           </p>
           <p className="text-base">Aicraft Model:</p>
           <p className="pb-2 text-slate-500">{aircraftType.name}</p>
