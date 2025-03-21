@@ -5,13 +5,16 @@
 @custom-variant dark (&:is(.dark *));
 
 #root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
   margin: 0 auto;
   text-align: center;
 }
 
 #leaflet-map {
-  height: 100vh;
-  width: 100vw;
+  flex: 1;
+  height: auto;
 }
 
 .leaflet-container {
