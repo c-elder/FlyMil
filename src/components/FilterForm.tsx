@@ -2,7 +2,7 @@ import { z } from "zod";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 
 import { useCountryFilter } from "../hooks/useCountryFilter";
-import {  API } from "../types/api_response";
+import { API } from "../types/api_response";
 import { options } from "../utils/filter-options";
 import { IdentifyCountry } from "../utils/identification";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -28,7 +28,7 @@ type Props = {
   data: API | undefined;
 };
 
-export function FilterForm({ data,  }: Props) {
+export function FilterForm({ data }: Props) {
   const { setFilter } = useCountryFilter();
 
   const { handleSubmit, control } = useForm<FormFields>({

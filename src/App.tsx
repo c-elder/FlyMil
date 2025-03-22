@@ -27,7 +27,7 @@ function App() {
   const { country } = useCountryFilter();
 
   return (
-    <main className="flex h-full flex-col">
+    <main className="font-inter flex h-full flex-col">
       <nav className="border-1 border-b-gray-300 shadow-lg">
         <FilterForm data={data} />
       </nav>

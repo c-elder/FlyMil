@@ -1,8 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
 @import "tailwindcss";
 
 @plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-inter: "Inter", "sans-serif";
+}
+
+body {
+  font-family: "Urbanist Variable", sans-serif;
+}
 
 #root {
   display: flex;
@@ -20,6 +30,7 @@
 .leaflet-container {
   height: 100%;
   width: 100%;
+  font-family: Inter, sans-serif;
 }
 
 .leaflet-div-icon {

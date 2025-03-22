@@ -48,6 +48,7 @@ const countryCodes: CountryMapping = {
   "153": { country: "Russia", code: "RU" },
   "155": { country: "Russia", code: "RU" },
   "4CA": { country: "Ireland", code: "IE" },
+  "154": {country: "Russia", code: "RU"},
   AE0: { country: "United States", code: "US" },
   ADF: { country: "United States", code: "US" },
   A42: { country: "United States", code: "US" },
@@ -141,12 +142,14 @@ const countryCodes: CountryMapping = {
   "094": { country: "Benin", code: "BJ" },
   E90: { country: "Uruguay", code: "UY" },
   468: { country: "Greece", code: "GR" },
+  "46F": {country: "Greece", code: "GR"},
   "758": { country: "Philippines", code: "PH" },
   "87C": { country: "Japan", code: "JP" },
   "762": { country: "Pakistan", code: "PK" },
   "507": { country: "Uzbekistan", code: "UZ" },
   "0A4": { country: "Algeria", code: "DZ" },
   "038": { country: "Cote d'Ivoire", code: "CI" },
+  "683": {country: "Kazakhstan", code: "KZ"}
 };
 
 const aircraftTypes: AircraftMapping = {
