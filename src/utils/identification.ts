@@ -150,7 +150,7 @@ const countryCodes: CountryMapping = {
   "0A4": { country: "Algeria", code: "DZ" },
   "038": { country: "Cote d'Ivoire", code: "CI" },
   "683": { country: "Kazakhstan", code: "KZ" },
-  "018": { country: "Libya", code: "LY" }
+  "018": { country: "Libya", code: "LY" },
 };
 
 const aircraftTypes: AircraftMapping = {

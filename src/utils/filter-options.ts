@@ -44,6 +44,7 @@ export const options = [
   { value: "KW", label: "Kuwait" },
   { value: "LV", label: "Latvia" },
   { value: "LB", label: "Lebanon" },
+  { value: "LY", label: "Libya" },
   { value: "LT", label: "Lithuania" },
   { value: "LU", label: "Luxembourg" },
   { value: "MY", label: "Malaysia" },
