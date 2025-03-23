@@ -26,6 +26,12 @@ FlyMil uses the [ADS-B Exchange API](https://adsbexchange.com/) to retrieve real
   - Barometric Altitude
   - Track
   - Position
+- Ability to filter by country of registration.
+- Aircraft icons to identify which type of aircraft it is.
+  - Fixed-wing (prop-style, private jet-style, 4-engines, 2-engines)
+  - Rotory-wing (helicopters, apache specific icon)
+  - Drones
+  - Tiltrotor
 
 ## Installation
 
