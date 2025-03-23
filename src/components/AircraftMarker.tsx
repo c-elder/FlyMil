@@ -3,6 +3,7 @@ import { Marker, Popup } from "react-leaflet";
 
 import { AircraftDetails } from "../types/api_response";
 import { getIcon } from "../utils/aircraft-icons";
+import { IdentifyAircraft } from "../utils/identification";
 
 type Props = {
   aircraft: AircraftDetails;
@@ -12,14 +13,16 @@ type Props = {
 export function AircraftMarker({ aircraft, setCurrAC }: Props) {
   const position: LatLngExpression = [aircraft.lat, aircraft.lon];
 
+  const aircraftType = IdentifyAircraft(aircraft.t)
+
   if (!aircraft.lat || !aircraft.lon) {
     return null;
   }
 
   const icon = L.divIcon({
     html: `
-          <div style="transform: rotate(${180 + aircraft.track}deg);">
-            ${getIcon(aircraft.t)}
+          <div style="transform: rotate(${aircraft.track}deg);">
+            ${getIcon(aircraftType.image)}
           </div>`,
     iconSize: [32, 32],
     iconAnchor: [16, 16],
