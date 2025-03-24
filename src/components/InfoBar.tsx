@@ -16,10 +16,10 @@ export function InfoBar({ aircraft }: Props) {
         <div className="p-4">
           <div className="flex items-center gap-x-2">
             <h3 className="text-2xl font-bold text-white">
-              {aircraft.flight || "UNKNOWN"}
+              {aircraft.flight?.trim().length > 0 ? aircraft.flight : "UNKNOWN"}
             </h3>
             <Badge variant="default" className="h-4 rounded bg-[#7353e9] p-2">
-              {aircraft.r}
+              {aircraft.r?.trim().length > 0 ? aircraft.r : "UNKNOWN"}
             </Badge>
             <Badge className="h-4 rounded bg-[#d1d1d1] p-2 text-[#222222]">
               {aircraftType.name.toUpperCase() || "UNKNOWN"}
@@ -38,7 +38,7 @@ export function InfoBar({ aircraft }: Props) {
             </p>
             <p className="text-slate-500">Ground Speed:</p>
             <p className="mr-4 pb-2 font-semibold text-gray-800 md:text-base">
-              {aircraft.gs} kts
+              {aircraft.gs?.toString().length > 1 ? `${aircraft.gs}  kts` : "N/A"}
             </p>
             <p className="text-slate-500">True Airspeed:</p>
             <p className="pb-2 font-semibold text-gray-800 md:text-base">
@@ -55,9 +55,9 @@ export function InfoBar({ aircraft }: Props) {
             <p className="pb-2 font-semibold text-gray-800 md:text-base">
               {aircraft.alt_baro ? `${aircraft.alt_baro} ft` : "N/A"}
             </p>
-            <p className="text-slate-500">Position:</p>
+            <p className="text-slate-500">Position (lat, lon):</p>
             <p className="pb-2 font-semibold text-gray-800 md:text-base">
-              {aircraft.lon ? `${aircraft.lat}, ${aircraft.lon}` : "N/A"}
+              {aircraft.lon ? `${aircraft.lat.toFixed(3)}, ${aircraft.lon.toFixed(3)}` : "N/A"}
             </p>
           </div>
         </div>

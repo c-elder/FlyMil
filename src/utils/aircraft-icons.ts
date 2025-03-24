@@ -30,6 +30,8 @@ export function getIcon(image: string = "UNKNOWN") {
       return drone;
     case "2-ENG":
       return plane;
+    case "APACHE":
+      return H64;
     case "JET":
       return jet;
     case "CHINOOK":

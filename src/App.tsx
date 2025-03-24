@@ -11,24 +11,30 @@ import { InfoBar } from "./components/InfoBar.tsx";
 import { useCountryFilter } from "./hooks/useCountryFilter.ts";
 import { AircraftDetails, API } from "./types/api_response";
 import { IdentifyCountry } from "./utils/identification.ts";
+import { Link } from "react-router-dom";
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
   const position: LatLngExpression = [51.505, -0.09];
 
-  const { data } = useQuery({
-    queryKey: ["aircraftData"],
-    queryFn: fetchAPI,
-    staleTime: 900000,
-    refetchInterval: 900000,
-  });
+  const minutes = 15;
 
   const [currAC, setCurrAC] = useState<AircraftDetails | null>(null);
-
   const { country } = useCountryFilter();
+
+  const { data, error } = useQuery({
+    queryKey: ["aircraftData"],
+    queryFn: fetchAPI,
+    staleTime: minutes * 60000,
+    refetchInterval: minutes * 60000,
+  });
+
+  if (error) return <p>An error has occurred: ${error.message}</p>;
 
   return (
     <main className="font-inter flex h-full flex-col">
-      <nav className="border-1 border-b-gray-300 shadow-lg">
+      <nav className="border-1 border-b-gray-300 shadow-lg flex justify-between items-center p-4 max-w-">
+        <Link to="/" className="text-2xl font-black text-[#4f39a2] tracking-wide">FLYMIL</Link>
         <FilterForm data={data} />
       </nav>
       <div id="leaflet-map">
@@ -36,6 +42,7 @@ function App() {
           center={position}
           zoom={4}
           minZoom={3}
+          maxZoom={13}
           maxBounds={[
             [-180, -180],
             [180, 180],
@@ -60,7 +67,7 @@ function App() {
             })
             .map((ac) => (
               <AircraftMarker
-                key={ac.lat}
+                key={uuidv4()}
                 aircraft={ac}
                 setCurrAC={setCurrAC}
               />
