@@ -13,7 +13,7 @@ type Props = {
 export function AircraftMarker({ aircraft, setCurrAC }: Props) {
   const position: LatLngExpression = [aircraft.lat, aircraft.lon];
 
-  const aircraftType = IdentifyAircraft(aircraft.t)
+  const aircraftType = IdentifyAircraft(aircraft.t);
 
   if (!aircraft.lat || !aircraft.lon) {
     return null;

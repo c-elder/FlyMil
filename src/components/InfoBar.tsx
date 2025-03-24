@@ -38,7 +38,9 @@ export function InfoBar({ aircraft }: Props) {
             </p>
             <p className="text-slate-500">Ground Speed:</p>
             <p className="mr-4 pb-2 font-semibold text-gray-800 md:text-base">
-              {aircraft.gs?.toString().length > 1 ? `${aircraft.gs}  kts` : "N/A"}
+              {aircraft.gs?.toString().length > 1
+                ? `${aircraft.gs}  kts`
+                : "N/A"}
             </p>
             <p className="text-slate-500">True Airspeed:</p>
             <p className="pb-2 font-semibold text-gray-800 md:text-base">
@@ -57,7 +59,9 @@ export function InfoBar({ aircraft }: Props) {
             </p>
             <p className="text-slate-500">Position (lat, lon):</p>
             <p className="pb-2 font-semibold text-gray-800 md:text-base">
-              {aircraft.lon ? `${aircraft.lat.toFixed(3)}, ${aircraft.lon.toFixed(3)}` : "N/A"}
+              {aircraft.lon
+                ? `${aircraft.lat.toFixed(3)}, ${aircraft.lon.toFixed(3)}`
+                : "N/A"}
             </p>
           </div>
         </div>

@@ -14,7 +14,7 @@ export function useCountryFilter() {
 
       return params;
     });
-  }, []);
+  }, [setSearchParams]);
 
   return { country, setFilter };
 }

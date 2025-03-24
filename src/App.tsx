@@ -4,6 +4,7 @@ import { LatLngExpression } from "leaflet";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
+import { Link } from "react-router-dom";
 
 import { AircraftMarker } from "./components/AircraftMarker";
 import { FilterForm } from "./components/FilterForm.tsx";
@@ -11,8 +12,6 @@ import { InfoBar } from "./components/InfoBar.tsx";
 import { useCountryFilter } from "./hooks/useCountryFilter.ts";
 import { AircraftDetails, API } from "./types/api_response";
 import { IdentifyCountry } from "./utils/identification.ts";
-import { Link } from "react-router-dom";
-import { v4 as uuidv4 } from 'uuid';
 
 function App() {
   const position: LatLngExpression = [51.505, -0.09];
@@ -33,8 +32,13 @@ function App() {
 
   return (
     <main className="font-inter flex h-full flex-col">
-      <nav className="border-1 border-b-gray-300 shadow-lg flex justify-between items-center p-4 max-w-">
-        <Link to="/" className="text-2xl font-black text-[#4f39a2] tracking-wide">FLYMIL</Link>
+      <nav className="max-w- flex items-center justify-between border-1 border-b-gray-300 p-4 shadow-lg">
+        <Link
+          to="/"
+          className="text-2xl font-black tracking-wide text-[#4f39a2]"
+        >
+          FLYMIL
+        </Link>
         <FilterForm data={data} />
       </nav>
       <div id="leaflet-map">
@@ -65,13 +69,15 @@ function App() {
               }
               return true;
             })
-            .map((ac) => (
-              <AircraftMarker
-                key={uuidv4()}
-                aircraft={ac}
-                setCurrAC={setCurrAC}
-              />
-            )) || null}
+            .map((ac) => {
+              return (
+                <AircraftMarker
+                  key={ac.hex}
+                  aircraft={ac}
+                  setCurrAC={setCurrAC}
+                />
+              );
+            }) || null}
 
           {currAC && <InfoBar aircraft={currAC} />}
         </MapContainer>
