@@ -6,15 +6,18 @@ export function useCountryFilter() {
 
   const country = searchParams.get("country");
 
-  const setFilter = useCallback((country: string) => {
-    setSearchParams((params) => {
-      if (country !== undefined) {
-        params.set("country", country);
-      }
+  const setFilter = useCallback(
+    (country: string) => {
+      setSearchParams((params) => {
+        if (country !== undefined) {
+          params.set("country", country);
+        }
 
-      return params;
-    });
-  }, [setSearchParams]);
+        return params;
+      });
+    },
+    [setSearchParams],
+  );
 
   return { country, setFilter };
 }
