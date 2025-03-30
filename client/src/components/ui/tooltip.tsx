@@ -16,6 +16,7 @@ function TooltipProvider({
       {...props}
     />
   );
+}
 
 function Tooltip({
   ...props

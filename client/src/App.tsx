@@ -32,7 +32,7 @@ function App() {
 
   return (
     <main className="font-inter flex h-full flex-col">
-      <nav className="max-w- flex items-center justify-between border-1 border-b-gray-300 p-4 shadow-lg">
+      <nav className="max-w- border-1 flex items-center justify-between border-b-gray-300 p-4 shadow-lg">
         <Link
           to="/"
           className="text-2xl font-black tracking-wide text-[#4f39a2]"

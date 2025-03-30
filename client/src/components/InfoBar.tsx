@@ -11,7 +11,7 @@ export function InfoBar({ aircraft }: Props) {
   const aircraftType = IdentifyAircraft(aircraft.t);
 
   return (
-    <div className="font-inter absolute right-1/2 bottom-0 left-1/2 z-[9999] w-full -translate-x-1/2 transform text-left md:w-fit">
+    <div className="font-inter absolute bottom-0 left-1/2 right-1/2 z-[9999] w-full -translate-x-1/2 transform text-left md:w-fit">
       <div className="flex-col gap-x-12 rounded-xl bg-[#4f39a2] md:flex">
         <div className="p-4">
           <div className="flex items-center gap-x-2">
@@ -30,7 +30,7 @@ export function InfoBar({ aircraft }: Props) {
             {country.country?.toUpperCase() || "UNKNOWN"}
           </p>
         </div>
-        <div className="gap-x- flex divide-x-1 bg-white p-4 whitespace-nowrap md:p-6">
+        <div className="gap-x- divide-x-1 flex whitespace-nowrap bg-white p-4 md:p-6">
           <div className="flex-col gap-x-2 pr-2">
             <p className="text-slate-500">Type:</p>
             <p className="mr-4 pb-2 font-semibold text-gray-800 md:text-base">
@@ -48,7 +48,7 @@ export function InfoBar({ aircraft }: Props) {
             </p>
           </div>
 
-          <div className="flex-col gap-x-2 pr-2 pl-4 md:pl-6">
+          <div className="flex-col gap-x-2 pl-4 pr-2 md:pl-6">
             <p className="text-slate-500">Indicated Speed:</p>
             <p className="pb-2 font-semibold text-gray-800 md:text-base">
               {aircraft.ias ? `${aircraft.ias} kts` : "N/A"}
