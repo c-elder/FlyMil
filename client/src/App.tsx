@@ -6,6 +6,7 @@ import { useState } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import { Link } from "react-router-dom";
 
+import { config } from "../config.ts";
 import { AircraftMarker } from "./components/AircraftMarker";
 import { FilterForm } from "./components/FilterForm.tsx";
 import { InfoBar } from "./components/InfoBar.tsx";
@@ -87,17 +88,9 @@ function App() {
 }
 
 async function fetchAPI(): Promise<API> {
-  const apiKey = import.meta.env.VITE_API_KEY;
-  const url = "https://adsbexchange-com1.p.rapidapi.com/v2/mil/";
-  const options = {
-    method: "GET",
-    headers: {
-      "x-rapidapi-key": apiKey,
-      "x-rapidapi-host": "adsbexchange-com1.p.rapidapi.com",
-    },
-  };
+  const URL = config.url;
 
-  const response = await fetch(url, options);
+  const response = await fetch(`${URL}/aircraft`);
 
   if (!response.ok) {
     throw new Error(`HTTP Error: ${response.status}`);

@@ -1,8 +1,23 @@
 import Fastify from "fastify";
-import 'dotenv/config'
+
+import cors from "@fastify/cors";
+
+import "dotenv/config";
+
+import { config } from "./config";
 
 const server = Fastify({
   logger: true,
+});
+
+const URL = config.url;
+console.log(URL);
+
+server.register(cors, {
+  origin: URL,
+  methods: ["GET"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
 });
 
 server.get("/", async function handler(request, reply) {
@@ -11,11 +26,13 @@ server.get("/", async function handler(request, reply) {
 
 server.get("/aircraft", async function getAircraft(request, reply) {
   const apiKey = process.env.API_KEY;
-  console.log(`API KEY: ${apiKey}`)
+  console.log(`API KEY: ${apiKey}`);
   const url = "https://adsbexchange-com1.p.rapidapi.com/v2/mil/";
 
   if (!apiKey) {
-    throw new Error("API key is undefined. Please set the API_KEY environment variable.");
+    throw new Error(
+      "API key is undefined. Please set the API_KEY environment variable.",
+    );
   }
 
   const options: RequestInit = {
@@ -33,7 +50,7 @@ server.get("/aircraft", async function getAircraft(request, reply) {
   }
 
   return response.json();
-})
+});
 
 const start = async () => {
   try {
