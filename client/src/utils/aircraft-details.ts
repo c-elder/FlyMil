@@ -1,10 +1,10 @@
 type AircraftTypes = "Fixed-wing" | "Rotary-wing" | "Tiltrotor" | "Unknown";
-
+type Manufacturers = "N/A" | "GULFSTREAM AEROSPACE" | "EUROFIGHTER" | "BEECHCRAFT" | "BOEING" | "EMBRAER" | "PILATUS" | "AIRBUS" | "AGUSTA WESTLAND" | "MCDONNELL DOUGLAS" | "GROB" | "BOEING-VERTOL" | "CASA" | "BOMBARDIER" | "LOCKHEED" | "ILYUSHIN" | "GULFSTREAM" | "TOWER" | "AGUSTA" | "ATR" | "ANTONOV" | "DASSAULT" | "DE HAVILLAND" | "EUROCOPTER" | "SIKORSKY" | "CESSNA" | "DORNIER" | "RAYTHEON" | "BRITISH AEROSPACE" | "ALENIA" | "LOCKHEED MARTIN" | "BEECH" | "NORTHROP" | "AIRBUS HELICOPTERS" | "BELL-BOEING" | "LEARJET" | "MUDRY" | "SOCATA" | "BELL" | "BAYKAR" | "FAIRCHILD" | "CIRRUS" | "NORTHROP GRUMMAN" | "PZL-MIELEC" | "PZL-SWIDNIK" | "MIL" | "LET" | "HAWKER BEECHCRAFT" | "AEROSPATIALE" | "TUPOLEV" | "AERMACCHI" | "KAWASAKI" | "BREGUET" | "SAAB" | "FOKKER" | "ENSTROM" | "PIAGGIO" | "IAI" | "MCDONNELL-DOUGLAS" | "GRUMMAN" | "PIPER"
 type AircraftMapping = {
   [key: string]: {
     name: string;
     type: AircraftTypes;
-    manufacturer: string;
+    manufacturer: Manufacturers;
     image: string;
   };
 };
@@ -43,7 +43,7 @@ export const aircraftTypes: AircraftMapping = {
   EC45: {
     name: "EC-145",
     type: "Rotary-wing",
-    manufacturer: "AIRBUS HELICOPTERS",
+    manufacturer: "AIRBUS",
     image: "H60",
   },
   EH10: {
@@ -67,13 +67,13 @@ export const aircraftTypes: AircraftMapping = {
   LYNX: {
     name: "AW-159 Super Lynx",
     type: "Rotary-wing",
-    manufacturer: "AGUSTAWESTLAND",
+    manufacturer: "AGUSTA WESTLAND",
     image: "H60",
   },
   B52: {
     name: "B-52H Stratofortress",
     type: "Fixed-wing",
-    manufacturer: "Boeing",
+    manufacturer: "BOEING",
     image: "4-ENG",
   },
   G12T: {
@@ -91,7 +91,7 @@ export const aircraftTypes: AircraftMapping = {
   C17: {
     name: "C-17A Globemaster III",
     type: "Fixed-wing",
-    manufacturer: "Boeing",
+    manufacturer: "BOEING",
     image: "4-ENG",
   },
   C295: {
@@ -163,7 +163,7 @@ export const aircraftTypes: AircraftMapping = {
   R135: {
     name: "RC-135S Cobra Ball",
     type: "Fixed-wing",
-    manufacturer: "Boeing",
+    manufacturer: "BOEING",
     image: "4-ENG",
   },
   B762: {
@@ -217,13 +217,13 @@ export const aircraftTypes: AircraftMapping = {
   AS65: {
     name: "MH-65D Dolphin",
     type: "Rotary-wing",
-    manufacturer: "Eurocopter",
+    manufacturer: "EUROCOPTER",
     image: "H60",
   },
   C5M: {
     name: "C-5M Super Galaxy",
     type: "Fixed-wing",
-    manufacturer: "Lockheed",
+    manufacturer: "LOCKHEED",
     image: "4-ENG",
   },
   H60: {
@@ -247,7 +247,7 @@ export const aircraftTypes: AircraftMapping = {
   TEX2: {
     name: "T-6A Texan II",
     type: "Fixed-wing",
-    manufacturer: "Raytheon",
+    manufacturer: "RAYTHEON",
     image: "PROP",
   },
   HAWK: {
@@ -259,7 +259,7 @@ export const aircraftTypes: AircraftMapping = {
   C27J: {
     name: "C-27J Spartan",
     type: "Fixed-wing",
-    manufacturer: "Alenia",
+    manufacturer: "ALENIA",
     image: "PROP",
   },
   A119: {
@@ -463,7 +463,7 @@ export const aircraftTypes: AircraftMapping = {
   SR20: {
     name: "T-53A Kaydet II",
     type: "Fixed-wing",
-    manufacturer: "Cirrus",
+    manufacturer: "CIRRUS",
     image: "PROP",
   },
   Q4: {

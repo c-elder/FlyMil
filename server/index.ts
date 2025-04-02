@@ -1,9 +1,6 @@
 import Fastify from "fastify";
-
 import cors from "@fastify/cors";
-
 import "dotenv/config";
-
 import { config } from "./config";
 
 const server = Fastify({
@@ -11,7 +8,6 @@ const server = Fastify({
 });
 
 const URL = config.url;
-console.log(URL);
 
 server.register(cors, {
   origin: URL,
@@ -20,9 +16,6 @@ server.register(cors, {
   credentials: true,
 });
 
-server.get("/", async function handler(request, reply) {
-  return { hello: "world" };
-});
 
 server.get("/aircraft", async function getAircraft(request, reply) {
   const apiKey = process.env.API_KEY;
