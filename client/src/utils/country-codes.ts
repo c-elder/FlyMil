@@ -149,4 +149,5 @@ export const countryCodes: CountryMapping = {
   "683": { country: "Kazakhstan", code: "KZ" },
   "018": { country: "Libya", code: "LY" },
   "4D2": { country: "Malta", code: "MT" },
+  "510": { country: "Belarus", code: "BY" },
 };

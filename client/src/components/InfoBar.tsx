@@ -1,14 +1,17 @@
+import { AircraftContent } from "../types/aircraft-content";
 import { AircraftDetails } from "../types/api_response";
 import { IdentifyAircraft, IdentifyCountry } from "../utils/identification";
 import { Badge } from "./ui/badge";
 
 type Props = {
   aircraft: AircraftDetails;
+  content: AircraftContent | undefined;
 };
 
-export function InfoBar({ aircraft }: Props) {
+export function InfoBar({ aircraft, content }: Props) {
   const country = IdentifyCountry(aircraft.hex);
-  const aircraftType = IdentifyAircraft(aircraft.t);
+  if (!content) return <></>;
+  const aircraftType = IdentifyAircraft(aircraft.t, content);
 
   return (
     <div className="font-inter absolute bottom-0 left-1/2 right-1/2 z-[9999] w-full -translate-x-1/2 transform text-left md:w-fit">
@@ -22,7 +25,7 @@ export function InfoBar({ aircraft }: Props) {
               {aircraft.r?.trim().length > 0 ? aircraft.r : "UNKNOWN"}
             </Badge>
             <Badge className="h-4 rounded bg-[#d1d1d1] p-2 text-[#222222]">
-              {aircraftType.name.toUpperCase() || "UNKNOWN"}
+              {aircraftType.name?.toUpperCase() || "UNKNOWN"}
             </Badge>
           </div>
           <p className="text-gray-300">

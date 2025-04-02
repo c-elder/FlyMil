@@ -6,12 +6,13 @@ import { useState } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import { Link } from "react-router-dom";
 
-import { config } from "../config.ts";
+import { fetchAircraftContent } from "./api/fetchAircraftContent.ts";
+import { fetchAircraftData } from "./api/fetchAircraftData.ts";
 import { AircraftMarker } from "./components/AircraftMarker";
 import { FilterForm } from "./components/FilterForm.tsx";
 import { InfoBar } from "./components/InfoBar.tsx";
 import { useCountryFilter } from "./hooks/useCountryFilter.ts";
-import { AircraftDetails, API } from "./types/api_response";
+import { AircraftDetails } from "./types/api_response";
 import { IdentifyCountry } from "./utils/identification.ts";
 
 function App() {
@@ -22,14 +23,20 @@ function App() {
   const [currAC, setCurrAC] = useState<AircraftDetails | null>(null);
   const { country } = useCountryFilter();
 
-  const { data, error } = useQuery({
+  const aircraftContent = useQuery({
+    queryKey: ["aircraftContent"],
+    queryFn: fetchAircraftContent,
+  });
+
+  const aircraftData = useQuery({
     queryKey: ["aircraftData"],
-    queryFn: fetchAPI,
+    queryFn: fetchAircraftData,
     staleTime: minutes * 60000,
     refetchInterval: minutes * 60000,
   });
 
-  if (error) return <p>An error has occurred: ${error.message}</p>;
+  if (aircraftData.error)
+    return <p>An error has occurred: ${aircraftData.error.message}</p>;
 
   return (
     <main className="font-inter flex h-full flex-col">
@@ -40,7 +47,7 @@ function App() {
         >
           FLYMIL
         </Link>
-        <FilterForm data={data} />
+        <FilterForm data={aircraftData.data} />
       </nav>
       <div id="leaflet-map">
         <MapContainer
@@ -63,7 +70,7 @@ function App() {
             ]}
           />
 
-          {data?.ac
+          {aircraftData.data?.ac
             .filter((aircraft) => {
               if (country) {
                 return IdentifyCountry(aircraft.hex).code === country;
@@ -75,28 +82,19 @@ function App() {
                 <AircraftMarker
                   key={ac.hex}
                   aircraft={ac}
+                  content={aircraftContent.data}
                   setCurrAC={setCurrAC}
                 />
               );
             }) || null}
 
-          {currAC && <InfoBar aircraft={currAC} />}
+          {currAC && (
+            <InfoBar aircraft={currAC} content={aircraftContent.data} />
+          )}
         </MapContainer>
       </div>
     </main>
   );
-}
-
-async function fetchAPI(): Promise<API> {
-  const URL = config.url;
-
-  const response = await fetch(`${URL}/aircraft`);
-
-  if (!response.ok) {
-    throw new Error(`HTTP Error: ${response.status}`);
-  }
-
-  return response.json();
 }
 
 export default App;
