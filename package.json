@@ -1,15 +1,23 @@
 {
+  "name": "flymil",
+  "version": "1.0.0",
+  "description": "A live tracking tool for government and military aircraft. This project leverages unfiltered ADS-B, Mode S and MLAT feeders provided by enthusiasts. This tool provides a user-friendly interface to monitor different countries government and military movements in the air.",
+  "main": "index.js",
   "scripts": {
-    "prettier": "npx prettier . --write"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "devDependencies": {
-    "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
-    "@tanstack/eslint-plugin-query": "^5.68.0",
-    "eslint": "^9.23.0",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.19",
-    "prettier": "^3.5.3",
-    "prettier-plugin-tailwindcss": "^0.6.11",
-    "typescript-eslint": "^8.28.0"
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/v0rkath/FlyMil.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/v0rkath/FlyMil/issues"
+  },
+  "homepage": "https://github.com/v0rkath/FlyMil#readme",
+  "workspaces": [
+    "apps/*"
+  ]
 }
