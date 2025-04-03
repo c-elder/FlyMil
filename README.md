@@ -42,3 +42,33 @@ npm install
 ```
 
 FlyMil uses the [ADS-B Exchange API](https://adsbexchange.com/) so to run the project successfully you will have to purchase an API key.
+
+## Getting Started
+
+To get started with FlyMil, follow these steps:
+
+1. Clone the repository:
+
+   ```sh
+   git clone https://github.com/v0rkath/FlyMil.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```sh
+   cd FlyMil
+   ```
+
+3. Install the dependencies:
+
+   ```sh
+   npm install
+   ```
+
+4. Obtain an API key from [ADS-B Exchange](https://adsbexchange.com/).
+5. The project has been freshly converted to a monorepo using npm workspaces. No merged commands have been created at this time.
+
+   ```sh
+   npm run dev -w @flymil/client // Start up client
+   npm start -w @flymil/server // Start up up server
+   ```
