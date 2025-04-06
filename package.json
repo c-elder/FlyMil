@@ -4,7 +4,9 @@
   "description": "A live tracking tool for government and military aircraft. This project leverages unfiltered ADS-B, Mode S and MLAT feeders provided by enthusiasts. This tool provides a user-friendly interface to monitor different countries government and military movements in the air.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "turbo run dev",
+    "build": "turbo run build"
   },
   "repository": {
     "type": "git",
@@ -19,5 +21,6 @@
   "homepage": "https://github.com/v0rkath/FlyMil#readme",
   "workspaces": [
     "apps/*"
-  ]
+  ],
+  "packageManager": "^npm@10.9.2"
 }
