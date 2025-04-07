@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "turbo run dev",
-    "build": "turbo run build"
+    "build": "turbo run build",
+    "start": "turbo run start",
+    "prettier": "turbo run prettier"
   },
   "repository": {
     "type": "git",
@@ -22,5 +24,9 @@
   "workspaces": [
     "apps/*"
   ],
-  "packageManager": "^npm@10.9.2"
+  "packageManager": "^npm@10.9.2",
+  "devDependencies": {
+    "react-is": "^19.1.0",
+    "server": "^1.0.41"
+  }
 }

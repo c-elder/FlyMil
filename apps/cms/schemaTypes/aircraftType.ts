@@ -94,6 +94,11 @@ export const aircraftType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'details',
+      type: 'text',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: 'icon',
       type: 'image',
     }),
