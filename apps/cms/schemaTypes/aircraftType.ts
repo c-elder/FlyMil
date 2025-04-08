@@ -89,6 +89,9 @@ export const aircraftType = defineType({
           'MCDONNELL-DOUGLAS',
           'GRUMMAN',
           'PIPER',
+          'PZL-OKECIE',
+          'DIAMOND',
+          'GENERAL DYNAMICS',
         ],
       },
       validation: (rule) => rule.required(),
@@ -96,7 +99,6 @@ export const aircraftType = defineType({
     defineField({
       name: 'details',
       type: 'text',
-      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'icon',

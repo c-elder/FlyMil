@@ -22,6 +22,7 @@ export const countryCodes: CountryMapping = {
   "3F5": { country: "Germany", code: "DE" },
   "3F9": { country: "Germany", code: "DE" },
   "3F6": { country: "Germany", code: "DE" },
+  "3D9": { country: "Germany", code: "DE" },
   "341": { country: "Spain", code: "ES" },
   "343": { country: "Spain", code: "ES" },
   "352": { country: "Spain", code: "ES" },
