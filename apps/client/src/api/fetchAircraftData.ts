@@ -9,5 +9,6 @@ export async function fetchAircraftData(): Promise<API> {
   if (!response.ok) {
     throw new Error(`[ADSB] Error: ${response.status}`);
   }
+
   return response.json();
 }

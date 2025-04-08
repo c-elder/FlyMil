@@ -15,10 +15,12 @@
   "dependencies": {
     "@fastify/cors": "^11.0.1",
     "dotenv": "^16.4.7",
-    "fastify": "^5.2.2"
+    "fastify": "^5.2.2",
+    "redis": "^4.7.0"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
+    "@types/redis": "^4.0.10",
     "prettier": "^3.5.3",
     "typescript": "^5.8.2"
   }
