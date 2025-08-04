@@ -36,7 +36,7 @@ function App() {
   });
 
   if (aircraftData.error)
-    return <p>An error has occurred: ${aircraftData.error.message}</p>;
+    return <p>[!] An error has occurred: ${aircraftData.error.message}</p>;
 
   return (
     <main className="font-inter flex h-full flex-col">
