@@ -33,7 +33,7 @@ server.get("/aircraft", async function getAircraft(request, reply) {
 
     if (!apiKey) {
       throw new Error(
-        "API key is undefined. Please set the API_KEY environment variable."
+        "API key is undefined... Please set the API_KEY environment variable."
       );
     }
 
