@@ -5,7 +5,7 @@
       "cache": false
     },
     "build": {
-      "outputs": ["dist/**"] // comment
+      "outputs": ["dist/**"] // comments
     },
     "prettier": {},
     "start": {
